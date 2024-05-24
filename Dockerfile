@@ -35,6 +35,8 @@ COPY --from=build --chown=1001 /home/jboss/target/quarkus-app/*.jar /deployments
 COPY --from=build --chown=1001 /home/jboss/target/quarkus-app/app/ /deployments/app/
 COPY --from=build --chown=1001 /home/jboss/target/quarkus-app/quarkus/ /deployments/quarkus/
 
+RUN chmod 755 /deployments/run-java.sh
+
 EXPOSE 8080
 USER 1001
 
